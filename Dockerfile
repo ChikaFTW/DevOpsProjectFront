@@ -4,10 +4,10 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
 COPY package-lock.json ./
-RUN npm install -g pnpm
-RUN pnpm install
+
 COPY . ./
-RUN pnpm run build
+RUN npm install
+RUN npm run build
 
 # production environment
 FROM nginx:stable-alpine
